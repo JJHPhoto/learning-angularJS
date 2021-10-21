@@ -14,7 +14,7 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
   </head>
-  <body class="bg-secondary">
+  <body class="bg-secondary" ng-controller="MyController">
     <div class="container mt-sm-3">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 card">
@@ -23,9 +23,9 @@
 
             <div class="form-row mb-2">
               <div class="col">
-                <label class="col-form-label text-right" for="searchQuery"
-                  >search</label
-                >
+                <label class="col-form-label text-right" for="searchQuery">
+                  search {{ "for: " + query }}
+                </label>
               </div>
               <!-- label -->
 
@@ -35,6 +35,7 @@
                   id="searchQuery"
                   placeholder="Search for artists"
                   autofocus
+                  ng-model="query"
                 />
               </div>
               <!-- col-12 -->
@@ -42,6 +43,35 @@
             <!-- form-row -->
           </div>
           <!-- card-body -->
+        </div>
+        <!-- col-12 -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- col-container -->
+
+    <div class="artist-list container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-9 col-md-7 col-lg-5">
+          <ul class="list-group d-flex">
+            <li class="list-group-item">
+              <div class="media d-flex align-items-center">
+                <img
+                  class="rounded-circle mr-3"
+                  src="images/{{artist.shortname}}_tn.jpg"
+                  alt="Photo of {{artist.name}}"
+                />
+                <div class="media-body">
+                  <h5 class="my-0 text-dark">{{artist.name}}</h5>
+                  <div class="text-secondary font-italic">
+                    {{artist.reknown}}
+                  </div>
+                </div>
+                <!-- media-body -->
+              </div>
+              <!-- media -->
+            </li>
+          </ul>
         </div>
         <!-- col-12 -->
       </div>
